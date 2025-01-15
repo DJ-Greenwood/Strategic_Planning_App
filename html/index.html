@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Strategic Planning Coach</title>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+  <div id="spinner" style="display: none;">Loading...</div>
+  <div class="container">
+    <h1>Enhanced Strategic Planning Coach</h1>
+    <p>Welcome to the Enhanced Strategic Planning Coach! This tool is designed to help you define clear goals, create actionable plans, and track progress effectively. Follow the steps below to get started.</p>
+
+    <!-- API Key Input -->
+    <h2>Step 1: Enter Your OpenAI API Key</h2>
+    <p>To begin using this tool, you need to provide your OpenAI API key. This ensures the application can process your inputs and generate tailored recommendations.</p>
+    <input type="password" id="apiKey" placeholder="OpenAI API Key">
+    <button id = "validateApiKey" onclick="validateApiKey()">Validate API Key</button>
+    <p id="apiStatus" style="color: red;"></p>
+
+    <div id="planningSteps" style="display: none;">
+      <!-- Step 2: Define Strategic Goals -->
+      <h2>Step 2: Define Your Strategic Goals</h2>
+      <p>Describe your key objectives, how you'll measure success, and the timeline for achieving your goals. Choose the category that best fits your objective.</p>
+      <input type="text" id="objective" placeholder="Objective: What do you aim to achieve?">
+      <input type="text" id="metrics" placeholder="Metrics: How will success be measured?">
+      <input type="text" id="timeline" placeholder="Timeline: When do you expect results?">
+      <select id="category">
+        <option value="Financial">Financial</option>
+        <option value="Operational">Operational</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Other">Other</option>
+      </select>
+      <button id= "submitGoalsButton" onclick="submitGoals()">Submit Goals</button>
+      <p id="goalsStatus" style="color: green;"></p>
+
+      <!-- Step 3: Achievable Outcomes -->
+      <h2>Step 3: Generate Achievable Outcomes</h2>
+      <p>Based on the goals you defined, this step will generate actionable outcomes to help you achieve your objectives. Click the button below to get started.</p>
+      <button id="generateOutcomesButton" onclick="generateOutcomes()">Generate Outcomes</button>
+      <textarea id="outcomes" rows="5" readonly></textarea>
+
+      <!-- Step 4: Plan for Each Outcome -->
+      <h2>Step 4: Create a Plan for Each Outcome</h2>
+      <p>Select one of the generated outcomes and create a detailed plan to accomplish it. Paste the outcome into the field below and click the button to generate a plan.</p>
+      <textarea  id="selectedOutcome" rows="3" placeholder="Paste an outcome here to plan for it."></textarea>
+      <button id="generatePlanButton" onclick="generatePlan()">Generate Plan</button>
+      <textarea id="plan" rows="5" readonly></textarea>
+
+      <!-- Step 5: Define Rewards -->
+      <h2>Step 5: Define Rewards</h2>
+      <p>Motivate yourself or your team by defining rewards for achieving specific outcomes. Click the button to generate a list of suggested rewards.</p>
+      <button id="generateRewardsButton" onclick="generateRewards()">Generate Rewards</button>
+      <textarea id="rewards" rows="5" readonly></textarea>
+
+      <!-- Step 6: Generate Report -->
+      <h2>Step 6: Generate Report</h2>
+      <p>Compile all your inputs, outcomes, and plans into a comprehensive report. Use this report to share your strategy with others or keep it as a reference.</p>
+      <button id="generateReportButton" onclick="generateReport()">Generate Report</button>
+      <textarea id="report" rows="10" readonly></textarea>
+
+      <!-- Step 7: Generate Summary -->
+      <h2>Step 7: Generate a Summary</h2>
+      <p>Summarize the key points of your strategic plan into a concise overview. Click the button below to generate the summary and save your report for future use.</p>
+      <input type="text" id="filename" placeholder="Enter filename for report">
+      <p id="saveStatus"></p>
+      <button id="saveReportButton" onclick="saveReport()">Save Report</button>
+      <textarea id="summary" rows="10" readonly></textarea>
+
+      <!-- Reset Button -->
+      <h2>Reset the Form</h2>
+      <p>If you wish to start over, click the button below to reset all fields and inputs. This will allow you to redefine your strategic plan from scratch.</p>
+      <button id="resetFormButton" onclick="resetForm()">Reset</button>
+      <p>Note: Resetting will clear all your data, so make sure to save your work before proceeding.</p>
+    </div>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
